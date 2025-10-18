@@ -626,7 +626,7 @@ impl Shred {
         }
     }
 
-    pub(crate) fn num_data_shreds(&self) -> Result<u16, Error> {
+    pub fn num_data_shreds(&self) -> Result<u16, Error> {
         match self {
             Self::ShredCode(shred) => Ok(shred.num_data_shreds()),
             Self::ShredData(_) => Err(Error::InvalidShredType),
