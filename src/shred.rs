@@ -955,10 +955,7 @@ where
                 stats.bad_parent_offset += 1;
                 return true;
             };
-            if !blockstore::verify_shred_slots(slot, parent, root) {
-                stats.slot_out_of_range += 1;
-                return true;
-            }
+            panic!()
         }
     }
     match shred_variant {

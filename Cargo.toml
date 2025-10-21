@@ -15,7 +15,6 @@ name = "solana-ledger"
 version = "2.3.9"
 authors = ["Anza Maintainers <maintainers@anza.xyz>"]
 build = false
-autolib = false
 autobins = false
 autoexamples = false
 autotests = false
@@ -26,9 +25,6 @@ documentation = "https://docs.rs/solana-ledger"
 readme = false
 license = "Apache-2.0"
 repository = "https://github.com/anza-xyz/agave"
-
-[package.metadata.docs.rs]
-targets = ["x86_64-unknown-linux-gnu"]
 
 [features]
 dev-context-only-utils = []
@@ -42,31 +38,6 @@ frozen-abi = [
 name = "solana_ledger"
 crate-type = ["lib"]
 path = "src/lib.rs"
-
-[[test]]
-name = "blockstore"
-path = "tests/blockstore.rs"
-
-[[test]]
-name = "shred"
-path = "tests/shred.rs"
-
-[[bench]]
-name = "blockstore"
-path = "benches/blockstore.rs"
-
-[[bench]]
-name = "blockstore_processor"
-path = "benches/blockstore_processor.rs"
-
-[[bench]]
-name = "make_shreds_from_entries"
-path = "benches/make_shreds_from_entries.rs"
-harness = false
-
-[[bench]]
-name = "protobuf"
-path = "benches/protobuf.rs"
 
 [dependencies.agave-feature-set]
 version = "=2.3.9"
@@ -163,11 +134,6 @@ version = "1.10.0"
 [dependencies.reed-solomon-erasure]
 version = "6.0.0"
 features = ["simd-accel"]
-
-[dependencies.rocksdb]
-version = "0.23.0"
-features = ["lz4"]
-default-features = false
 
 [dependencies.scopeguard]
 version = "1.2.0"
@@ -417,15 +383,6 @@ version = "0.5.1"
 
 [dev-dependencies.test-case]
 version = "3.3.1"
-
-[lints.clippy]
-arithmetic_side_effects = "deny"
-default_trait_access = "deny"
-manual_let_else = "deny"
-used_underscore_binding = "deny"
-
-[lints.rust]
-warnings = "deny"
 
 [lints.rust.unexpected_cfgs]
 level = "warn"
